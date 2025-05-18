@@ -8,6 +8,37 @@
   <!-- <meta http-equiv="refresh" content="0; URL=clima.html" />       Esto es para redirigir automaicamente a esa pagina xd-->
 </head>
 <body>
+  <nav>
+  <ul>
+    <li><a href="index.html">Calculadora</a></li>
+    <li><a href="clima.html">Clima</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    background-color: #222;
+    padding: 10px;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+  
   <div class="calculator">
     <input type="text" id="display" disabled>
     <div class="buttons">
