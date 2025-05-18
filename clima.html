@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clima Actual</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    #clima { font-size: 1.5rem; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🌤️ Clima en Lima, Perú</h1>
+  <div id="clima">Cargando clima...</div>
+
+  <script>
+    // Coordenadas de Lima
+    const lat = -12.0464;
+    const lon = -77.0428;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        const temp = data.current_weather.temperature;
+        const viento = data.current_weather.windspeed;
+        document.getElementById("clima").innerText = `Temperatura: ${temp}°C\nViento: ${viento} km/h`;
+      })
+      .catch(error => {
+        document.getElementById("clima").innerText = "Error al obtener datos.";
+        console.error("Error:", error);
+      });
+  </script>
+</body>
+</html>
